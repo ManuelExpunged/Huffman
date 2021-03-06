@@ -34,31 +34,31 @@ namespace Huffman
             this.BinaryLabel = new System.Windows.Forms.Label();
             this.InputLabel = new System.Windows.Forms.Label();
             this.ConvertBtn = new System.Windows.Forms.Button();
+            this.TreeLabel = new System.Windows.Forms.Label();
+            this.TreeBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // InputBox
             // 
-            this.InputBox.Location = new System.Drawing.Point(12, 27);
+            this.InputBox.Location = new System.Drawing.Point(14, 27);
             this.InputBox.Multiline = true;
             this.InputBox.Name = "InputBox";
-            this.InputBox.Size = new System.Drawing.Size(1228, 200);
+            this.InputBox.Size = new System.Drawing.Size(306, 138);
             this.InputBox.TabIndex = 0;
-            this.InputBox.TextChanged += new System.EventHandler(this.Inputbox_TextChanged);
             // 
             // BinaryBox
             // 
-            this.BinaryBox.Location = new System.Drawing.Point(12, 258);
+            this.BinaryBox.Location = new System.Drawing.Point(14, 186);
             this.BinaryBox.Multiline = true;
             this.BinaryBox.Name = "BinaryBox";
             this.BinaryBox.ReadOnly = true;
-            this.BinaryBox.Size = new System.Drawing.Size(1228, 252);
+            this.BinaryBox.Size = new System.Drawing.Size(394, 427);
             this.BinaryBox.TabIndex = 1;
-            this.BinaryBox.TextChanged += new System.EventHandler(this.BinaryBox_TextChanged);
             // 
             // BinaryLabel
             // 
             this.BinaryLabel.AutoSize = true;
-            this.BinaryLabel.Location = new System.Drawing.Point(12, 240);
+            this.BinaryLabel.Location = new System.Drawing.Point(14, 168);
             this.BinaryLabel.Name = "BinaryLabel";
             this.BinaryLabel.Size = new System.Drawing.Size(40, 15);
             this.BinaryLabel.TabIndex = 2;
@@ -75,24 +75,45 @@ namespace Huffman
             // 
             // ConvertBtn
             // 
-            this.ConvertBtn.Location = new System.Drawing.Point(1109, 516);
+            this.ConvertBtn.Location = new System.Drawing.Point(326, 27);
             this.ConvertBtn.Name = "ConvertBtn";
-            this.ConvertBtn.Size = new System.Drawing.Size(131, 110);
+            this.ConvertBtn.Size = new System.Drawing.Size(82, 138);
             this.ConvertBtn.TabIndex = 4;
             this.ConvertBtn.Text = "Convert!";
             this.ConvertBtn.UseVisualStyleBackColor = true;
             this.ConvertBtn.Click += new System.EventHandler(this.ConvertBtn_Click);
             // 
+            // TreeLabel
+            // 
+            this.TreeLabel.AutoSize = true;
+            this.TreeLabel.Location = new System.Drawing.Point(414, 9);
+            this.TreeLabel.Name = "TreeLabel";
+            this.TreeLabel.Size = new System.Drawing.Size(28, 15);
+            this.TreeLabel.TabIndex = 6;
+            this.TreeLabel.Text = "Tree";
+            // 
+            // TreeBox
+            // 
+            this.TreeBox.Location = new System.Drawing.Point(414, 27);
+            this.TreeBox.Multiline = true;
+            this.TreeBox.Name = "TreeBox";
+            this.TreeBox.ReadOnly = true;
+            this.TreeBox.Size = new System.Drawing.Size(826, 586);
+            this.TreeBox.TabIndex = 7;
+            // 
             // Huffman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 638);
+            this.ClientSize = new System.Drawing.Size(1252, 625);
+            this.Controls.Add(this.TreeBox);
+            this.Controls.Add(this.TreeLabel);
             this.Controls.Add(this.ConvertBtn);
             this.Controls.Add(this.InputLabel);
             this.Controls.Add(this.BinaryLabel);
             this.Controls.Add(this.BinaryBox);
             this.Controls.Add(this.InputBox);
+            this.DoubleBuffered = true;
             this.Name = "Huffman";
             this.Text = "Huffman";
             this.ResumeLayout(false);
@@ -107,6 +128,8 @@ namespace Huffman
         private System.Windows.Forms.Label BinaryLabel;
         private System.Windows.Forms.Label InputLabel;
         private System.Windows.Forms.Button ConvertBtn;
+        private System.Windows.Forms.Label TreeLabel;
+        private System.Windows.Forms.TextBox TreeBox;
     }
 }
 

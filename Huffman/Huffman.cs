@@ -14,16 +14,6 @@ namespace Huffman
             InitializeComponent();
         }
 
-        private void Inputbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BinaryBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
             char[] chars = InputBox.Text.ToArray();
@@ -52,12 +42,35 @@ namespace Huffman
                 {
                     if (c == node.Key)
                     {
-                        binaries.Add(Encode(string.Empty, node));
+                        binaries.Add(EncodeString(string.Empty, node));
                     }
                 }
             }
 
             BinaryBox.Text = string.Join(" ", binaries);
+            //TreeBox.Text = CreateHuffmanTreeRepresentation(string.Empty, huffman[0]);
+        }
+
+        private string CreateHuffmanTreeRepresentation(string tree, NodeModel node)
+        {
+            if (node.Parents != null)
+            {
+                tree += "*";
+            }
+            else
+            {
+                tree += node.Key;
+            }
+            
+            if (node.Parents != null)
+            {
+                foreach (NodeModel parentNode in node.Parents)
+                {
+                    tree = CreateHuffmanTreeRepresentation(tree, parentNode);
+                }
+            }
+
+            return tree;
         }
 
         private List<NodeModel> CreateHuffmanTree(List<NodeModel> nodes)
@@ -81,12 +94,12 @@ namespace Huffman
             return nodes;
         }
 
-        private string Encode(string binary, NodeModel node)
+        private string EncodeString(string binary, NodeModel node)
         {
             if (node.Connector != ConnectorEnum.Connector.Empty)
             {
                 binary += ((int)node.Connector).ToString();
-                binary = Encode(binary, node.Child);
+                binary = EncodeString(binary, node.Child);
             }
             return binary;
         }
