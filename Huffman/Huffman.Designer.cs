@@ -98,6 +98,7 @@ namespace Huffman
             this.TreeBox.Multiline = true;
             this.TreeBox.Name = "TreeBox";
             this.TreeBox.ReadOnly = true;
+            this.TreeBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TreeBox.Size = new System.Drawing.Size(826, 586);
             this.TreeBox.TabIndex = 7;
             // 
@@ -105,6 +106,7 @@ namespace Huffman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1252, 625);
             this.Controls.Add(this.TreeBox);
             this.Controls.Add(this.TreeLabel);

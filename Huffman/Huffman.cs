@@ -13,8 +13,8 @@ namespace Huffman
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
             HuffmanTree huffmanTree = new HuffmanTree(InputBox.Text);
-            BinaryBox.Text = string.Join(" ", huffmanTree.Encode());
-            ////TreeBox.Text = CreateHuffmanTreeRepresentation(string.Empty, huffman[0]);
+            BinaryBox.Text = string.Join(" ", huffmanTree.BinaryRepresentation);
+            TreeBox.Text = huffmanTree.TreeRepresentation;
         }
     }
 }
