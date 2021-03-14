@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Huffman
@@ -12,8 +11,6 @@ namespace Huffman
 
         public Dictionary<char, string> BinaryRepresentation { get; private set; } = new Dictionary<char, string>();
         public string TreeRepresentation { get; private set; }
-        public int SizeUncompressed { get; private set; }
-        public int SizeCompressed { get; private set; }
 
         public HuffmanTree(string src)
         {
