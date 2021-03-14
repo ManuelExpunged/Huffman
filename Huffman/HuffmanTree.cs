@@ -93,12 +93,12 @@ namespace Huffman
 
             if (Right != null)
             {
-                output = Right.MapToString(output, indentation, true);
+                output = Right.MapToString(output, indentation, isRight: true);
             }
 
             if (Left != null)
             {
-                output = Left.MapToString(output, indentation, false);
+                output = Left.MapToString(output, indentation);
             }
 
             return output;
