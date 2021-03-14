@@ -48,7 +48,7 @@ namespace Huffman
 
                 Node parent = new Node()
                 {
-                    Letter = '×',
+                    Letter = '+',
                     Count = sortedNodes[0].Count + sortedNodes[1].Count,
                     Left = sortedNodes[0],
                     Right = sortedNodes[1]
@@ -89,7 +89,7 @@ namespace Huffman
         public string MapToString(string output = "", string indentation = "", bool isRight = false, bool isRoot = false)
         {
             output += BuildNodeString(indentation, Letter, isRoot ? '-' : isRight ? '1' : '0', Count);
-            indentation += !isRight ? "\t" : "|\t";
+            indentation += !isRight ? "\t" : "│\t";
 
             if (Right != null)
             {
@@ -133,6 +133,6 @@ namespace Huffman
             }
         }
 
-        private string BuildNodeString(string indentation, char letter, char path, int count) => $"{indentation}+—[ {path} ]— {letter} ({count})\r\n";
+        private string BuildNodeString(string indentation, char letter, char path, int count) => $"{indentation}└─[ {path} ]──{letter} ({count})\r\n";
     }
 }

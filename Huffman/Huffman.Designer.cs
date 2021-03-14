@@ -52,6 +52,7 @@ namespace Huffman
             this.BinaryBox.Multiline = true;
             this.BinaryBox.Name = "BinaryBox";
             this.BinaryBox.ReadOnly = true;
+            this.BinaryBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.BinaryBox.Size = new System.Drawing.Size(394, 427);
             this.BinaryBox.TabIndex = 1;
             // 
