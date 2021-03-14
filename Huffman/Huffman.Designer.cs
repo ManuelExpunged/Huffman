@@ -58,7 +58,7 @@ namespace Huffman
             // BinaryLabel
             // 
             this.BinaryLabel.AutoSize = true;
-            this.BinaryLabel.Location = new System.Drawing.Point(14, 168);
+            this.BinaryLabel.Location = new System.Drawing.Point(12, 168);
             this.BinaryLabel.Name = "BinaryLabel";
             this.BinaryLabel.Size = new System.Drawing.Size(40, 15);
             this.BinaryLabel.TabIndex = 2;
