@@ -15,6 +15,9 @@ namespace Huffman
             HuffmanTree huffmanTree = new HuffmanTree(InputBox.Text);
             BinaryBox.Text = string.Join(" ", huffmanTree.BinaryRepresentation);
             TreeBox.Text = huffmanTree.TreeRepresentation;
+            SizeBox1.Text = $"{huffmanTree.StartingSize} bits";
+            SizeBox2.Text = $"{huffmanTree.FinalSize} bits";
+            SizeBox3.Text = $"{Decimal.Round(huffmanTree.PercentageDifference, 2)}%";
         }
     }
 }

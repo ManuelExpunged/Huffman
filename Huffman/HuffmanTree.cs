@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Huffman
@@ -9,8 +10,11 @@ namespace Huffman
         private readonly Dictionary<char, int> countedLetters = new Dictionary<char, int>();
         private Node root;
 
-        public List<string> BinaryRepresentation { get; private set; } = new List<string>();
-        public string TreeRepresentation { get; private set; }
+        public List<string> BinaryRepresentation { get; } = new List<string>();
+        public string TreeRepresentation { get; }
+        public int StartingSize { get; }
+        public int FinalSize { get; }
+        public decimal PercentageDifference { get; }
 
         public HuffmanTree(string src)
         {
@@ -19,6 +23,9 @@ namespace Huffman
             BuildTree();
             BinaryRepresentation = root.MapToBinary(letters);
             TreeRepresentation = root.MapToString(isRoot: true);
+            StartingSize = src.Length * 8;
+            FinalSize = string.Join(string.Empty, BinaryRepresentation).Length;
+            PercentageDifference = Decimal.Divide(Convert.ToDecimal(StartingSize - FinalSize), Convert.ToDecimal(StartingSize)) * 100m;
         }
 
         private void CountLetters()

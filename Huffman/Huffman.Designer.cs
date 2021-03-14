@@ -36,6 +36,12 @@ namespace Huffman
             this.ConvertBtn = new System.Windows.Forms.Button();
             this.TreeLabel = new System.Windows.Forms.Label();
             this.TreeBox = new System.Windows.Forms.TextBox();
+            this.SizeBox1 = new System.Windows.Forms.TextBox();
+            this.SizeBox2 = new System.Windows.Forms.TextBox();
+            this.SizeBox3 = new System.Windows.Forms.TextBox();
+            this.Size1 = new System.Windows.Forms.Label();
+            this.Size2 = new System.Windows.Forms.Label();
+            this.Size3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // InputBox
@@ -53,7 +59,7 @@ namespace Huffman
             this.BinaryBox.Name = "BinaryBox";
             this.BinaryBox.ReadOnly = true;
             this.BinaryBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.BinaryBox.Size = new System.Drawing.Size(394, 427);
+            this.BinaryBox.Size = new System.Drawing.Size(394, 383);
             this.BinaryBox.TabIndex = 1;
             // 
             // BinaryLabel
@@ -103,12 +109,69 @@ namespace Huffman
             this.TreeBox.Size = new System.Drawing.Size(826, 586);
             this.TreeBox.TabIndex = 7;
             // 
+            // SizeBox1
+            // 
+            this.SizeBox1.Location = new System.Drawing.Point(14, 590);
+            this.SizeBox1.Name = "SizeBox1";
+            this.SizeBox1.ReadOnly = true;
+            this.SizeBox1.Size = new System.Drawing.Size(130, 23);
+            this.SizeBox1.TabIndex = 8;
+            // 
+            // SizeBox2
+            // 
+            this.SizeBox2.Location = new System.Drawing.Point(150, 590);
+            this.SizeBox2.Name = "SizeBox2";
+            this.SizeBox2.ReadOnly = true;
+            this.SizeBox2.Size = new System.Drawing.Size(130, 23);
+            this.SizeBox2.TabIndex = 10;
+            // 
+            // SizeBox3
+            // 
+            this.SizeBox3.Location = new System.Drawing.Point(286, 590);
+            this.SizeBox3.Name = "SizeBox3";
+            this.SizeBox3.ReadOnly = true;
+            this.SizeBox3.Size = new System.Drawing.Size(122, 23);
+            this.SizeBox3.TabIndex = 12;
+            // 
+            // Size1
+            // 
+            this.Size1.AutoSize = true;
+            this.Size1.Location = new System.Drawing.Point(14, 572);
+            this.Size1.Name = "Size1";
+            this.Size1.Size = new System.Drawing.Size(84, 15);
+            this.Size1.TabIndex = 9;
+            this.Size1.Text = "Start size (8bit)";
+            // 
+            // Size2
+            // 
+            this.Size2.AutoSize = true;
+            this.Size2.Location = new System.Drawing.Point(150, 572);
+            this.Size2.Name = "Size2";
+            this.Size2.Size = new System.Drawing.Size(109, 15);
+            this.Size2.TabIndex = 11;
+            this.Size2.Text = "Final size (w/o tree)";
+            // 
+            // Size3
+            // 
+            this.Size3.AutoSize = true;
+            this.Size3.Location = new System.Drawing.Point(286, 572);
+            this.Size3.Name = "Size3";
+            this.Size3.Size = new System.Drawing.Size(54, 15);
+            this.Size3.TabIndex = 13;
+            this.Size3.Text = "Decrease";
+            // 
             // Huffman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1252, 625);
+            this.Controls.Add(this.Size3);
+            this.Controls.Add(this.SizeBox3);
+            this.Controls.Add(this.Size2);
+            this.Controls.Add(this.SizeBox2);
+            this.Controls.Add(this.Size1);
+            this.Controls.Add(this.SizeBox1);
             this.Controls.Add(this.TreeBox);
             this.Controls.Add(this.TreeLabel);
             this.Controls.Add(this.ConvertBtn);
@@ -133,6 +196,12 @@ namespace Huffman
         private System.Windows.Forms.Button ConvertBtn;
         private System.Windows.Forms.Label TreeLabel;
         private System.Windows.Forms.TextBox TreeBox;
+        private System.Windows.Forms.Label Size1;
+        private System.Windows.Forms.Label Size2;
+        private System.Windows.Forms.Label Size3;
+        private System.Windows.Forms.TextBox SizeBox1;
+        private System.Windows.Forms.TextBox SizeBox2;
+        private System.Windows.Forms.TextBox SizeBox3;
     }
 }
 
