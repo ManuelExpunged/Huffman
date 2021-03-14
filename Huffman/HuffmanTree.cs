@@ -9,7 +9,7 @@ namespace Huffman
         private readonly Dictionary<char, int> countedLetters = new Dictionary<char, int>();
         private Node root;
 
-        public Dictionary<char, string> BinaryRepresentation { get; private set; } = new Dictionary<char, string>();
+        public List<string> BinaryRepresentation { get; private set; } = new List<string>();
         public string TreeRepresentation { get; private set; }
 
         public HuffmanTree(string src)
@@ -70,21 +70,7 @@ namespace Huffman
         public char Letter { get; set; }
         public int Count { get; set; }
 
-        public Dictionary<char, string> MapToBinary(char[] src)
-        {
-            List<string> bindata = src.Select(c => string.Join(string.Empty, BuildPath(c, new List<bool>()).Select(b => b ? "1" : "0"))).ToList();
-            Dictionary<char, string> distinct = new Dictionary<char, string>();
-
-            for (int i = 0; i <= src.Length - 1; i++)
-            {
-                if (!distinct.ContainsKey(src[i]))
-                {
-                    distinct.Add(src[i], bindata[i]);
-                }
-            }
-
-            return distinct;
-        }
+        public List<string> MapToBinary(char[] src) => src.Select(c => string.Join(string.Empty, BuildPath(c, new List<bool>()).Select(b => b ? "1" : "0"))).ToList();
 
         public string MapToString(string output = "", string indentation = "", bool isRight = false, bool isRoot = false)
         {

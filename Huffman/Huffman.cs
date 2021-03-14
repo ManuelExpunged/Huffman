@@ -13,7 +13,7 @@ namespace Huffman
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
             HuffmanTree huffmanTree = new HuffmanTree(InputBox.Text);
-            BinaryBox.Text = string.Join("\r\n", huffmanTree.BinaryRepresentation);
+            BinaryBox.Text = string.Join(" ", huffmanTree.BinaryRepresentation);
             TreeBox.Text = huffmanTree.TreeRepresentation;
         }
     }
