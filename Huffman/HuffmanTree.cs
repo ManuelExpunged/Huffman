@@ -19,7 +19,7 @@ namespace Huffman
             CountLetters();
             BuildTree();
             BuildBinary();
-            TreeRepresentation = root.MapToString(root, string.Empty, string.Empty, false);
+            TreeRepresentation = root.MapToString(isRoot: true);
         }
 
         private void CountLetters()
@@ -49,7 +49,7 @@ namespace Huffman
 
                 Node parent = new Node()
                 {
-                    Letter = '*',
+                    Letter = '×',
                     Count = sortedNodes[0].Count + sortedNodes[1].Count,
                     Left = sortedNodes[0],
                     Right = sortedNodes[1]
@@ -77,7 +77,7 @@ namespace Huffman
         {
             if (Left == null && Right == null)
             {
-                return (bool)c.Equals(Letter) ? data : null;
+                return c.Equals(Letter) ? data : null;
             }
             else
             {
@@ -102,24 +102,24 @@ namespace Huffman
             }
         }
 
-        public string MapToString(Node node, string output, string indentation, bool hasNodeBelow)
+        public string MapToString(string output = "", string indentation = "", bool isRight = false, bool isRoot = false)
         {
-            output += BuildNodeString(indentation, node.Letter, node.Count);
-            indentation += !hasNodeBelow ? "\t" : "|\t";
+            output += BuildNodeString(indentation, Letter, isRoot ? '-' : isRight ? '1' : '0', Count);
+            indentation += !isRight ? "\t" : "|\t";
 
-            if (node.Right != null)
+            if (Right != null)
             {
-                output = MapToString(node.Right, output, indentation, true);
+                output = Right.MapToString(output, indentation, true);
             }
 
-            if (node.Left != null)
+            if (Left != null)
             {
-                output = MapToString(node.Left, output, indentation, false);
+                output = Left.MapToString(output, indentation, false);
             }
 
             return output;
         }
 
-        private string BuildNodeString(string indentation, char letter, int count) => $"{indentation}+--- {letter} [{count}]\r\n";
+        private string BuildNodeString(string indentation, char letter, char path, int count) => $"{indentation}+—[ {path} ]— {letter} ({count})\r\n";
     }
 }
