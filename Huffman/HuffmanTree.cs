@@ -18,7 +18,7 @@ namespace Huffman
             letters = src.ToCharArray();
             CountLetters();
             BuildTree();
-            BuildBinary();
+            BinaryRepresentation = root.MapToBinary(letters);
             TreeRepresentation = root.MapToString(isRoot: true);
         }
 
@@ -62,8 +62,6 @@ namespace Huffman
 
             root = nodes.FirstOrDefault();
         }
-
-        private void BuildBinary() => BinaryRepresentation.AddRange(letters.Select(c => string.Join(string.Empty, root.MapToBinary(c, new List<bool>()).Select(b => b ? "1" : "0"))));
     }
 
     public class Node
@@ -73,35 +71,8 @@ namespace Huffman
         public char Letter { get; set; }
         public int Count { get; set; }
 
-        public List<bool> MapToBinary(char c, List<bool> data)
-        {
-            if (Left == null && Right == null)
-            {
-                return c.Equals(Letter) ? data : null;
-            }
-            else
-            {
-                List<bool> left = null;
-                List<bool> right = null;
-
-                if (Left != null)
-                {
-                    List<bool> leftPath = new List<bool>(data);
-                    leftPath.Add(false);
-                    left = Left.MapToBinary(c, leftPath);
-                }
-
-                if (Right != null)
-                {
-                    List<bool> rightPath = new List<bool>(data);
-                    rightPath.Add(true);
-                    right = Right.MapToBinary(c, rightPath);
-                }
-
-                return left ?? right;
-            }
-        }
-
+        public List<string> MapToBinary(char[] src) => new List<string>(src.Select(c => string.Join(string.Empty, BuildPath(c, new List<bool>()).Select(b => b ? "1" : "0"))));
+        
         public string MapToString(string output = "", string indentation = "", bool isRight = false, bool isRoot = false)
         {
             output += BuildNodeString(indentation, Letter, isRoot ? '-' : isRight ? '1' : '0', Count);
@@ -118,6 +89,35 @@ namespace Huffman
             }
 
             return output;
+        }
+
+        private List<bool> BuildPath(char c, List<bool> data)
+        {
+            if (Left == null && Right == null)
+            {
+                return c.Equals(Letter) ? data : null;
+            }
+            else
+            {
+                List<bool> left = null;
+                List<bool> right = null;
+
+                if (Left != null)
+                {
+                    List<bool> leftPath = new List<bool>(data);
+                    leftPath.Add(false);
+                    left = Left.BuildPath(c, leftPath);
+                }
+
+                if (Right != null)
+                {
+                    List<bool> rightPath = new List<bool>(data);
+                    rightPath.Add(true);
+                    right = Right.BuildPath(c, rightPath);
+                }
+
+                return left ?? right;
+            }
         }
 
         private string BuildNodeString(string indentation, char letter, char path, int count) => $"{indentation}+—[ {path} ]— {letter} ({count})\r\n";
